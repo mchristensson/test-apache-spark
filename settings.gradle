@@ -10,5 +10,8 @@
 rootProject.name = 'sandbox-apache-spark'
 
 include 'core'
+include 'dummydb'
 
 project(':core').projectDir = new File('./core')
+project(':dummydb').projectDir = new File('./dummydb')
+

@@ -1,0 +1,17 @@
+ext {
+	hibernateVersion = "5.2.8.Final"
+	slf4jVersion =  "1.7.25"
+}
+
+
+dependencies {
+
+	compile "org.slf4j:slf4j-api:${slf4jVersion}"
+
+	//DB
+	compile "com.h2database:h2:1.4.193"
+
+	//Persistance
+	compile "org.hibernate:hibernate-core:${hibernateVersion}"
+	compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+}
