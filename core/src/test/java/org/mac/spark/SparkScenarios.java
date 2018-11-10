@@ -33,6 +33,8 @@ import org.mac.spark.test.model.LegacyAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import scala.Function1;
+
 public class SparkScenarios {
 	private static final Logger logger = LoggerFactory.getLogger(SparkScenarios.class);
 
@@ -93,7 +95,15 @@ public class SparkScenarios {
 
 		Dataset<Row> rows = readFromJdbc(sqlCtx, "PUBLIC", "LEGACYACCOUNT");
 
-		
+		Function1 function = new Function1<Row, LegacyAccount>() {
+
+			@Override
+			public LegacyAccount apply(Row v1) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		rows.transform(function );
 
 		// getDataSetResult(rows);
 		// TODO: Continue from here
