@@ -1,4 +1,4 @@
-package org.mac.spark.test.model;
+package org.mac.etl.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,26 +9,26 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "ACCOUNT", uniqueConstraints = @UniqueConstraint(columnNames = { "accountNumber" }) )
-public class Account {
+@Table(name = "LEGACYACCOUNT", uniqueConstraints = @UniqueConstraint(columnNames = { "accountnumber" }) )
+public class LegacyAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long accountNumber;
+	private String accountNumber;
 
-	@Column(name = "number", nullable = false)
-	public Long getAccountNumber() {
+	@Column(name = "accountnumber", nullable = false, length = 10)
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Long accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", accountNumber=" + accountNumber + "]";
+		return "LegacyAccount [id=" + id + ", accountNumber=" + accountNumber + "]";
 	}
 	
 	

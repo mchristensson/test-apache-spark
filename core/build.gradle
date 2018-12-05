@@ -2,10 +2,6 @@
 dependencies {
 
 	compile project(':dummydb');
-    
-	// Spark CORE
-	compile "org.apache.spark:spark-core_2.12:2.4.0"
-	// Spark SQL
-	compile "org.apache.spark:spark-sql_2.12:2.4.0"
+	testCompile project(path: ':dummydb', configuration: 'testDependencies');
     
 }

@@ -1,3 +1,4 @@
+package org.mac.spark.test.db;
 
 
 import java.io.File;
@@ -11,8 +12,8 @@ import javax.persistence.Query;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mac.spark.test.model.Account;
-import org.mac.spark.test.model.LegacyAccount;
+import org.mac.etl.demo.model.Account;
+import org.mac.etl.demo.model.LegacyAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
