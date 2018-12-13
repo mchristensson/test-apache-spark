@@ -1,4 +1,4 @@
-package org.mac.spark;
+package org.mac.etl;
 
 import java.sql.SQLException;
 

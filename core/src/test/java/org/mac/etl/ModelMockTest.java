@@ -1,4 +1,4 @@
-package org.mac.spark;
+package org.mac.etl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -61,42 +61,6 @@ public class ModelMockTest {
 
 		verify(accountService, times(1)).findById(any(Long.class));
 		verifyNoMoreInteractions(accountService);
-	}
-
-	@Test
-	public void testETL_createContext() {
-		ETLContext ctx = new ETLContext();
-	}
-	
-	@Test
-	public void testETL_addSegment() {
-		ETLContext ctx = new ETLContext();
-		Segment segment = ctx.addSegment();
-		Assert.assertNotNull(segment);
-	}
-	
-	@Test
-	public void testETLMapping() {
-
-		LegacyAccount legacyAccount = new LegacyAccount();
-		legacyAccount.setAccountNumber("123");
-		Account account = new Account();
-
-		ETLContext ctx = new ETLContext();
-		
-		Segment segment = ctx.addSegment();
-
-		// Define recipe
-		ETLMapping<String, Long> map = ctx.addMap(segment, legacyAccount::getAccountNumber, ParseLong.getInstance(),
-				account::setAccountNumber);
-		
-		// Run playbook
-		map.applyTransform(legacyAccount, account);
-
-		
-		
-		assertEquals((long) account.getAccountNumber(), 123L);
-
 	}
 
 }

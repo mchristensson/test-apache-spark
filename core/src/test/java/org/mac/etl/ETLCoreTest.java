@@ -1,4 +1,4 @@
-package org.mac.spark;
+package org.mac.etl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
