@@ -3,9 +3,6 @@ package org.mac.etl;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.mac.etl.ETLContext;
-import org.mac.etl.ETLMapping;
-import org.mac.etl.Segment;
 
 public class ETLContextTest {
 	
@@ -18,14 +15,14 @@ public class ETLContextTest {
 	@Test
 	public void testAddMap() {
 		ETLContext ctx = new ETLContext();
-		ETLMapping<?, ?> mapping = ctx.addMap(null, null, null, null);
-		assertNotNull(mapping);
+		Segment segment = ctx.addSegment("foo");
+		ctx.addMap(segment, null, null, null);
 	}
 
 	@Test
 	public void testAddSegment() {
 		ETLContext ctx = new ETLContext();
-		Segment segment = ctx.addSegment();
+		Segment segment = ctx.addSegment("foo");
 		assertNotNull(segment);
 	}
 

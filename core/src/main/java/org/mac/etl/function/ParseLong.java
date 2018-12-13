@@ -15,7 +15,9 @@ public class ParseLong implements Function<String, Long> {
 	
 	@Override
 	public Long apply(String s) {
-		return Long.parseLong(s);
+		long l = Long.parseLong(s);
+		System.out.println(s + " -> " + l);
+		return l;
 	}
 	
 }

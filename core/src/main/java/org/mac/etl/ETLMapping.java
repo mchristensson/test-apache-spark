@@ -7,18 +7,19 @@ import java.util.function.Supplier;
 import org.mac.etl.demo.model.Account;
 import org.mac.etl.demo.model.LegacyAccount;
 
-public class ETLMapping<S, O> {
+public class ETLMapping<I, O> {
 
-	private Supplier<S> supplier;
-	private Function<S, O> transformer;
+	private Supplier<I> supplier;
+	private Function<I, O> transformer;
 	private Consumer<O> consumer;
 
-	public void setSupplier(Supplier<S> supplier) {
+	public void setSupplier(Supplier<I> supplier) {
 		this.supplier = supplier;
 	}
 
-	public void applyTransform(LegacyAccount legacyAccount, Account account) {
-		S input = supplier.get();
+	public void applyTransform(I legacyAccount, O account) {
+		I input = supplier.get();
+		System.out.println("INPUT: " + input);
 		O output = transformer.apply(input);
 		consumer.accept(output);
 	}
@@ -27,7 +28,7 @@ public class ETLMapping<S, O> {
 		this.consumer = consumer;
 	}
 
-	public void setTransformer(Function<S, O> transformer) {
+	public void setTransformer(Function<I, O> transformer) {
 		this.transformer = transformer;
 	}
 

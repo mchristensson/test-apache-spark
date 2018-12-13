@@ -6,16 +6,20 @@ import java.util.function.Supplier;
 
 public class ETLContext {
 
-	static final ETLCore CORE = new ETLCore();
-
+	private static final ETLCore CORE = new ETLCore();
 	
-	public Segment addSegment() {
-		return CORE.addSegment();
+	
+	public Segment addSegment(String label) {
+		return CORE.appendSegment(label);
 	}
 	
-	public <S, O> ETLMapping<S, O> addMap(Segment segment, Supplier<S> supplier, Function<S, O> transformer, Consumer<O> consumer) {
-		return CORE.addMap(segment, supplier, transformer, consumer);
+	public <S, O> void addMap(Segment segment, Supplier<S> supplier, Function<S, O> transformer, Consumer<O> consumer) {
+		CORE.addMap(segment, supplier, transformer, consumer);
 
+	}
+
+	public void run() {
+		CORE.run();
 	}
 
 	
