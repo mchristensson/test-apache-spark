@@ -15,14 +15,14 @@ public class ETLContextTest {
 	@Test
 	public void testAddMap() {
 		ETLContext ctx = new ETLContext();
-		Segment segment = ctx.addSegment("foo");
-		ctx.addMap(segment, null, null, null);
+		Segment<?,?> segment = ctx.addSegment("foo");
+		ctx.addMap(segment, null);
 	}
 
 	@Test
 	public void testAddSegment() {
 		ETLContext ctx = new ETLContext();
-		Segment segment = ctx.addSegment("foo");
+		Segment<?,?> segment = ctx.addSegment("foo");
 		assertNotNull(segment);
 	}
 

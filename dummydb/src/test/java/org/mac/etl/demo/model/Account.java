@@ -16,6 +16,8 @@ public class Account {
 	private Long id;
 
 	private Long accountNumber;
+	private String firstName;
+	private String lastName;
 
 	@Column(name = "number", nullable = false)
 	public Long getAccountNumber() {
@@ -25,11 +27,32 @@ public class Account {
 	public void setAccountNumber(Long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+	
+	@Column(name = "firstname", nullable = false, length = 50)
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	@Column(name = "lastname", nullable = false, length = 64)
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", accountNumber=" + accountNumber + "]";
+		return "Account [id=" + id + ", accountNumber=" + accountNumber + ", firstName=" + firstName + ", lastName="
+				+ lastName + "]";
 	}
+
+	
 	
 	
 }

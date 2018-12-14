@@ -1,27 +1,22 @@
 package org.mac.etl;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import org.mac.etl.transform.Transformer;
 
 public class ETLContext {
 
 	private static final ETLCore CORE = new ETLCore();
 	
 	
-	public Segment addSegment(String label) {
+	public <S, T> Segment<S, T> addSegment(String label) {
 		return CORE.appendSegment(label);
 	}
-	
-	public <S, O> void addMap(Segment segment, Supplier<S> supplier, Function<S, O> transformer, Consumer<O> consumer) {
-		CORE.addMap(segment, supplier, transformer, consumer);
 
+	public <S,T> void addMap(Segment<S, T> segment, Transformer<S,T> accountNumberTransform) {
+		CORE.addTransform(segment, accountNumberTransform);
 	}
 
 	public void run() {
 		CORE.run();
 	}
-
-	
 
 }

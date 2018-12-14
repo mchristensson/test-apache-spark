@@ -16,6 +16,7 @@ public class LegacyAccount {
 	private Long id;
 
 	private String accountNumber;
+	private String name;
 
 	@Column(name = "accountnumber", nullable = false, length = 10)
 	public String getAccountNumber() {
@@ -25,11 +26,21 @@ public class LegacyAccount {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+	
+	@Column(name = "name", nullable = false, length = 128)
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	@Override
 	public String toString() {
-		return "LegacyAccount [id=" + id + ", accountNumber=" + accountNumber + "]";
+		return "LegacyAccount [id=" + id + ", accountNumber=" + accountNumber + ", name=" + name + "]";
 	}
+
 	
 	
 }

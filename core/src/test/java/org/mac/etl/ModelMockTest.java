@@ -8,19 +8,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import java.util.function.Function;
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mac.etl.ETLContext;
-import org.mac.etl.ETLMapping;
-import org.mac.etl.Segment;
 import org.mac.etl.demo.model.Account;
 import org.mac.etl.demo.model.LegacyAccount;
 import org.mac.etl.demo.service.AccountService;
 import org.mac.etl.demo.service.LegacyAccountService;
-import org.mac.etl.function.ParseLong;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
